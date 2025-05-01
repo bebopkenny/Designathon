@@ -5,12 +5,13 @@ import { LayoutDashboard, Info, PhoneCall, Gavel } from "lucide-react";
 export default function Page() {
   return (
     <div className="emergency-kit-layout">
-      <Sidebar>
-        <SidebarItem icon={<LayoutDashboard />} text="Checklist" />
-        <SidebarItem icon={<Info />} text="Flashcards" />
-        <SidebarItem icon={<PhoneCall />} text="Emergency Contacts" />
-        <SidebarItem icon={<Gavel />} text="Legal Help" />
-      </Sidebar>
+        <Sidebar>
+        <SidebarItem icon={<LayoutDashboard />} text="Checklist" href="/emergency-kit/checklist" />
+        <SidebarItem icon={<Info />} text="Flashcards" href="/emergency-kit/flashcards" />
+        <SidebarItem icon={<PhoneCall />} text="Emergency Contacts" href="/emergency-kit/contacts" />
+        <SidebarItem icon={<Gavel />} text="Legal Help" href="/emergency-kit/legal" />
+        </Sidebar>
+
 
       <main className="flex-1 p-6">
         <h2 className="text-2xl font-bold mb-2">Emergency Family Protection Kit</h2>

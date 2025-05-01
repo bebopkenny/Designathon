@@ -1,23 +1,26 @@
 import React from 'react'
 import '@/styles/globals.css'
+import CommunityImage from '@/images/community.png'
+import Logo from '@/images/logo.png'
+import Link from 'next/link';
 
 const page = () => {
   return (
     <>
     <nav className="nav-bar">
       <ul>
-        <img /> Refugio
+        <img src={Logo.src} alt="Logo"/>
         <li>
-          Emergency Kit
+          <Link href="/emergency-kit">Emergency-Kits</Link>
         </li>
         <li>
-          Trust Circles
+          <Link href="/trust-circles">Trust Circles</Link>
         </li>
         <li>
-          Reconnect
+          <Link href="/reconnect">Reconnect</Link>
         </li>
         <li>
-          About
+          <Link href="/about">About</Link>
         </li>
       </ul>
     </nav>
@@ -26,36 +29,75 @@ const page = () => {
       <h2 className="text-3xl font-bold mb-4">Helping the Latinx community stay together</h2>
       <p>Protect your family. Find your community. Rebuild your connections.</p>
       <button>Find out more</button>
+      <img src={CommunityImage.src} alt="Latinx community" />
     </main>
 
     <div className="scroll-container">
-      <div className="wrapper">
-        <div className="item item1">
-          <span className="fi fi-mx flag"></span> {/* Mexico 🇲🇽 */}
-        </div>
-        <div className="item item2">
-          <span className="fi fi-ar flag"></span> {/* Argentina 🇦🇷 */}
-        </div>
-        <div className="item item3">
-          <span className="fi fi-cl flag"></span> {/* Chile 🇨🇱 */}
-        </div>
-        <div className="item item4">
-          <span className="fi fi-co flag"></span> {/* Colombia 🇨🇴 */}
-        </div>
-        <div className="item item5">
-          <span className="fi fi-cu flag"></span> {/* Cuba 🇨🇺 */}
-        </div>
-        <div className="item item6">
-          <span className="fi fi-do flag"></span> {/* Dominican Republic 🇩🇴 */}
-        </div>
-        <div className="item item7">
-          <span className="fi fi-pe flag"></span> {/* Peru 🇵🇪 */}
-        </div>
-        <div className="item item8">
-          <span className="fi fi-ve flag"></span> {/* Venezuela 🇻🇪 */}
-        </div>
-      </div>
+  <div className="wrapper">
+    <div className="item item1">
+      <img src="https://flagcdn.com/w320/mx.png" alt="Mexico" className="flag-img" />
     </div>
+    <div className="item item2">
+      <img src="https://flagcdn.com/w320/ar.png" alt="Argentina" className="flag-img" />
+    </div>
+    <div className="item item3">
+      <img src="https://flagcdn.com/w320/cl.png" alt="Chile" className="flag-img" />
+    </div>
+    <div className="item item4">
+      <img src="https://flagcdn.com/w320/co.png" alt="Colombia" className="flag-img" />
+    </div>
+    <div className="item item5">
+      <img src="https://flagcdn.com/w320/cu.png" alt="Cuba" className="flag-img" />
+    </div>
+    <div className="item item6">
+      <img src="https://flagcdn.com/w320/do.png" alt="Dominican Republic" className="flag-img" />
+    </div>
+    <div className="item item7">
+      <img src="https://flagcdn.com/w320/pe.png" alt="Peru" className="flag-img" />
+    </div>
+    <div className="item item8">
+      <img src="https://flagcdn.com/w320/ve.png" alt="Venezuela" className="flag-img" />
+    </div>
+    <div className="item item9">
+      <img src="https://flagcdn.com/w320/br.png" alt="Brazil" className="flag-img" />
+    </div>
+    <div className="item item10">
+      <img src="https://flagcdn.com/w320/gt.png" alt="Guatemala" className="flag-img" />
+    </div>
+    <div className="item item11">
+      <img src="https://flagcdn.com/w320/hn.png" alt="Honduras" className="flag-img" />
+    </div>
+    <div className="item item12">
+      <img src="https://flagcdn.com/w320/sv.png" alt="El Salvador" className="flag-img" />
+    </div>
+    <div className="item item13">
+      <img src="https://flagcdn.com/w320/ni.png" alt="Nicaragua" className="flag-img" />
+    </div>
+    <div className="item item14">
+      <img src="https://flagcdn.com/w320/cr.png" alt="Costa Rica" className="flag-img" />
+    </div>
+    <div className="item item15">
+      <img src="https://flagcdn.com/w320/pa.png" alt="Panama" className="flag-img" />
+    </div>
+    <div className="item item16">
+      <img src="https://flagcdn.com/w320/py.png" alt="Paraguay" className="flag-img" />
+    </div>
+    <div className="item item17">
+      <img src="https://flagcdn.com/w320/uy.png" alt="Uruguay" className="flag-img" />
+    </div>
+    <div className="item item18">
+      <img src="https://flagcdn.com/w320/bo.png" alt="Bolivia" className="flag-img" />
+    </div>
+    <div className="item item19">
+      <img src="https://flagcdn.com/w320/ec.png" alt="Ecuador" className="flag-img" />
+    </div>
+    <div className="item item20">
+      <img src="https://flagcdn.com/w320/pr.png" alt="Puerto Rico" className="flag-img" />
+    </div>
+  </div>
+</div>
+
+
 
     </>
   )
