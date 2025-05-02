@@ -1,4 +1,13 @@
-export const mockCommunityCenters = [
+export interface CommunityCenter {
+    name: string;
+    category: string;
+    lat: number;
+    lon: number;
+    address?: string;
+    description?: string;
+  }
+  
+export const mockCommunityCenters: CommunityCenter[] = [
     {
       name: "Centro Juventud Boyle Heights",
       category: "Youth Programs",

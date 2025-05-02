@@ -5,7 +5,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import { fetchHRSAHealthCenters, HealthCenter } from '@/lib/fetchHealthCenters';
 import { fetchHIVClinics, HIVClinic } from '@/lib/fetchHIVClinics';
 import { fetchLatinxBusinesses, YelpBusiness } from '@/lib/fetchLatinxBusinesses';
-import { mockCommunityCenters } from '@/data/mockCommunityCenters';
+import { mockCommunityCenters, CommunityCenter } from '@/data/mockCommunityCenters';
 
 
 mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN!;
@@ -35,6 +35,7 @@ const MapboxMap = ({ selectedTypes, selectedRegion, communityFilters }: Props) =
   const [clinicMarkers, setClinicMarkers] = useState<mapboxgl.Marker[]>([]);
   const [hivMarkers, setHivMarkers] = useState<mapboxgl.Marker[]>([]);
   const [latinxMarkers, setLatinxMarkers] = useState<mapboxgl.Marker[]>([]);
+  const [communityMarkers, setCommunityMarkers] = useState<mapboxgl.Marker[]>([]);
 
   const LA_CENTER = { lat: 34.0522, lon: -118.2437 };
 
@@ -195,34 +196,49 @@ const MapboxMap = ({ selectedTypes, selectedRegion, communityFilters }: Props) =
   }, [selectedTypes.latinx, selectedRegion]);
   
   useEffect(() => {
-    // Remove previous community markers (you can use a state if you want individual categories later)
-    const markers: mapboxgl.Marker[] = [];
+    communityMarkers.forEach(marker => marker.remove());
+    setCommunityMarkers([]);
   
-    if (!communityFilters["Youth Programs"]) return;
+    const activeCategories = Object.entries(communityFilters)
+      .filter(([_, isActive]) => isActive)
+      .map(([category]) => category);
   
-    const centers = mockCommunityCenters.filter(
-      (c) => c.category === "Youth Programs"
-    );
+    if (activeCategories.length === 0) return;
   
-    centers.forEach((center) => {
-      const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(`
-        <div class="text-sm">
-          <strong>${center.name}</strong><br/>
-          ${center.address}
-        </div>
-      `);
+    // Color mapping
+    const categoryColors: Record<string, string> = {
+      'Youth Programs': '#22c55e',         // green
+      'Sanctuary Faith Spaces': '#8b5cf6', // purple
+      'Cultural Centers': '#ec4899',       // pink
+      'Daycares': '#f59e0b',               // amber
+      'Sports Fields': '#3b82f6',          // blue
+    };
   
-      const marker = new mapboxgl.Marker({ color: '#9333ea' }) // violet
-        .setLngLat([center.lon, center.lat])
-        .setPopup(popup)
-        .addTo(mapRef.current!);
+    // Filter and render matching centers
+    const newMarkers = mockCommunityCenters
+      .filter(center => activeCategories.includes(center.category))
+      .map(center => {
+        const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(`
+          <div class="text-sm">
+            <strong>${center.name}</strong><br/>
+            ${center.address || ''}<br/>
+            <em>${center.category}</em>
+          </div>
+        `);
   
-      markers.push(marker);
-    });
+        const markerColor = categoryColors[center.category] || '#6b7280'; // fallback gray
   
-    // Optional: save markers to state if you want to remove them later
-    return () => markers.forEach((m) => m.remove());
-  }, [communityFilters["Youth Programs"]]);
+        return new mapboxgl.Marker({ color: markerColor })
+          .setLngLat([center.lon, center.lat])
+          .setPopup(popup)
+          .addTo(mapRef.current!);
+      });
+  
+    setCommunityMarkers(newMarkers);
+  }, [communityFilters]);
+  
+  
+  
   
   return (
     <div ref={mapContainer} className="w-full h-[600px] rounded-xl shadow-lg" />
