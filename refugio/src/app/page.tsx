@@ -1,29 +1,12 @@
 import React from 'react'
 import '@/styles/globals.css'
 import CommunityImage from '@/images/community.png'
-import Logo from '@/images/logo.png'
-import Link from 'next/link';
+import Navbar from '@/components/Navbar';
 
 const page = () => {
   return (
     <>
-    <nav className="nav-bar">
-      <ul>
-        <img src={Logo.src} alt="Logo"/>
-        <li>
-          <Link href="/emergency-kit">Emergency-Kits</Link>
-        </li>
-        <li>
-          <Link href="/trust-circles">Trust Circles</Link>
-        </li>
-        <li>
-          <Link href="/reconnect">Reconnect</Link>
-        </li>
-        <li>
-          <Link href="/about">About</Link>
-        </li>
-      </ul>
-    </nav>
+    <Navbar />
 
     <main>
       <h2 className="text-3xl font-bold mb-4">Helping the Latinx community stay together</h2>

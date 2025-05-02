@@ -41,10 +41,9 @@ const RightSidebar = ({
   };
 
   return (
-    <div className="w-64 bg-white border rounded-xl p-4 shadow-md text-sm space-y-4">
+    <div className="w-64 max-h-full overflow-y-auto bg-white border-l p-4 shadow-md text-sm space-y-4">  
       <h2 className="font-bold text-lg">Filter Places</h2>
 
-      {/* Core Filters */}
       {Object.entries(selectedTypes).map(([type, isActive]) => (
         <label key={type} className="flex items-center justify-between">
           <span className="capitalize">{type}</span>
@@ -57,7 +56,6 @@ const RightSidebar = ({
         </label>
       ))}
 
-      {/* Region Dropdown */}
       <div className="mt-4">
         <p className="font-semibold mb-1">Latinx Region</p>
         <select
@@ -70,7 +68,6 @@ const RightSidebar = ({
         </select>
       </div>
 
-      {/* Scrollable Community Filters */}
       <div className="mt-4">
         <p className="font-semibold mb-1">Community Support</p>
         <div className="max-h-44 overflow-y-auto space-y-2">
@@ -87,7 +84,6 @@ const RightSidebar = ({
           ))}
         </div>
       </div>
-      {/* Legend for category colors */}
     <div className="mt-4">
     <p className="font-semibold mb-1">Map Legend</p>
     <ul className="space-y-1 text-xs">
@@ -109,25 +105,25 @@ const RightSidebar = ({
     </ul>
     </div>
     <div className="mt-4">
-  <p className="font-semibold mb-1">Health & Safety</p>
-  <ul className="space-y-1 text-xs">
-    <li className="flex items-center gap-2">
-      <span className="w-3 h-3 rounded-full bg-[#FF5733]" /> Clinics
-    </li>
-    <li className="flex items-center gap-2">
-      <span className="w-3 h-3 rounded-full bg-[#5A9]" /> HIV Care Providers
-    </li>
-  </ul>
-</div>
+        <p className="font-semibold mb-1">Health & Safety</p>
+        <ul className="space-y-1 text-xs">
+            <li className="flex items-center gap-2">
+            <span className="w-3 h-3 rounded-full bg-[#FF5733]" /> Clinics
+            </li>
+            <li className="flex items-center gap-2">
+            <span className="w-3 h-3 rounded-full bg-[#5A9]" /> HIV Care Providers
+            </li>
+        </ul>
+    </div>
 
-<div className="mt-4">
-  <p className="font-semibold mb-1">Local Businesses</p>
-  <ul className="space-y-1 text-xs">
-    <li className="flex items-center gap-2">
-      <span className="w-3 h-3 rounded-full bg-[#d97706]" /> Latinx-Owned Restaurants
-    </li>
-  </ul>
-</div>
+    <div className="mt-4">
+        <p className="font-semibold mb-1">Local Businesses</p>
+        <ul className="space-y-1 text-xs">
+            <li className="flex items-center gap-2">
+            <span className="w-3 h-3 rounded-full bg-[#d97706]" /> Latinx-Owned Restaurants
+            </li>
+        </ul>
+    </div>
     </div>
   );
 };

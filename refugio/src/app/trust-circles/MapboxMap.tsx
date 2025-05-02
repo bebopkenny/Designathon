@@ -241,7 +241,7 @@ const MapboxMap = ({ selectedTypes, selectedRegion, communityFilters }: Props) =
   
   
   return (
-    <div ref={mapContainer} className="w-full h-[600px] rounded-xl shadow-lg" />
+    <div ref={mapContainer} className="w-full h-full relative" />
   );
 };
 

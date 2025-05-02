@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import dynamic from 'next/dynamic';
 import RightSidebar from './RightSidebar';
+import Navbar from '@/components/Navbar';
 
 const MapboxMap = dynamic(() => import('./MapboxMap'), { ssr: false });
 
@@ -18,10 +19,10 @@ const Page = () => {
   const [communityFilters, setCommunityFilters] = useState<Record<string, boolean>>({});
 
   return (
-    <div className="p-6">
-      <h1 className="text-2xl font-bold mb-4">Trust Circles: Find Safe Places</h1>
-      <div className="flex gap-4">
-        <div className="flex-1">
+    <div className="h-screen flex flex-col">
+      <Navbar />
+    <div className="flex flex-1 overflow-hidden">
+      <div className="flex-1 relative">
         <MapboxMap
             selectedTypes={selectedTypes}
             selectedRegion={selectedRegion}
