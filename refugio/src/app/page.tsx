@@ -1,21 +1,48 @@
+'use client'
 import React from 'react'
 import '@/styles/globals.css'
 import CommunityImage from '@/images/community.png'
-import Navbar from '@/components/Navbar';
+import Navbar from '@/components/Navbar'
+import Link from 'next/link'
 
 const page = () => {
   return (
     <>
-    <Navbar />
+      <Navbar />
 
-    <main>
-      <h2 className="text-3xl font-bold mb-4">Helping the Latinx community stay together</h2>
-      <p>Protect your family. Find your community. Rebuild your connections.</p>
-      <button>Find out more</button>
-      <img src={CommunityImage.src} alt="Latinx community" />
-    </main>
+      {/* GRADIENT HERO */}
+      <div className="bg-gradient-to-b from-blue-50 via-white to-white pb-20">
+        <main className="flex flex-col-reverse md:flex-row items-center justify-between max-w-7xl mx-auto px-6 py-20 gap-12">
+          {/* HERO TEXT */}
+          <div className="flex-1 text-center md:text-left">
+            <h1 className="text-5xl font-extrabold leading-tight text-gray-900 mb-4">
+              Empowering the <span className="text-blue-700">Latinx community</span><br />
+              to stay connected and safe
+            </h1>
+            <p className="text-lg text-gray-700 mb-6 max-w-md mx-auto md:mx-0">
+              Protect your family. Find your community. Rebuild your connections.
+            </p>
+            <Link href="/help-solidarity">
+              <button className="bg-blue-600 text-white px-6 py-3 rounded-lg shadow hover:bg-blue-800 transition">
+                Get Involved
+              </button>
+            </Link>
+          </div>
 
-    <div className="scroll-container">
+          {/* HERO IMAGE */}
+          <div className="flex-1">
+            <Link href="/">
+              <img
+                src={CommunityImage.src}
+                alt="Latinx community illustration"
+                className="rounded-xl shadow-lg hover:opacity-90 transition cursor-pointer w-full max-w-md mx-auto"
+              />
+            </Link>
+          </div>
+        </main>
+
+        {/* FLAG SCROLLER - Replacing Stats */}
+        <div className="scroll-container">
   <div className="wrapper">
     <div className="item item1">
       <img src="https://flagcdn.com/w320/mx.png" alt="Mexico" className="flag-img" />
@@ -79,9 +106,7 @@ const page = () => {
     </div>
   </div>
 </div>
-
-
-
+      </div>
     </>
   )
 }

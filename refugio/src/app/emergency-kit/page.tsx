@@ -1,9 +1,12 @@
 import Sidebar, { SidebarItem } from '@/components/Sidebar'
 import Logo from '@/images/logo.png'
 import { LayoutDashboard, Info, PhoneCall, Gavel } from "lucide-react"; 
+import Navbar from '@/components/Navbar';
 
 export default function Page() {
   return (
+  <>
+    <Navbar />
     <div className="emergency-kit-layout">
         <Sidebar>
         <SidebarItem icon={<LayoutDashboard />} text="Checklist" href="/emergency-kit/checklist" />
@@ -21,6 +24,7 @@ export default function Page() {
         </p>
       </main>
     </div>
+  </>
   );
 };
 

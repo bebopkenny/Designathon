@@ -3,6 +3,13 @@ import { Geist, Geist_Mono } from "next/font/google";
 import '@/styles/globals.css';
 import 'flag-icons/css/flag-icons.min.css';
 import 'mapbox-gl/dist/mapbox-gl.css';
+import { Poppins } from "next/font/google";
+
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-poppins',
+});
 
 
 const geistSans = Geist({
@@ -27,9 +34,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+<body className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} antialiased`}>
+
         {children}
       </body>
     </html>
