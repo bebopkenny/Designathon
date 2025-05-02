@@ -87,6 +87,47 @@ const RightSidebar = ({
           ))}
         </div>
       </div>
+      {/* Legend for category colors */}
+    <div className="mt-4">
+    <p className="font-semibold mb-1">Map Legend</p>
+    <ul className="space-y-1 text-xs">
+        <li className="flex items-center gap-2">
+        <span className="w-3 h-3 rounded-full bg-[#22c55e]" /> Youth Programs
+        </li>
+        <li className="flex items-center gap-2">
+        <span className="w-3 h-3 rounded-full bg-[#8b5cf6]" /> Sanctuary Faith Spaces
+        </li>
+        <li className="flex items-center gap-2">
+        <span className="w-3 h-3 rounded-full bg-[#ec4899]" /> Cultural Centers
+        </li>
+        <li className="flex items-center gap-2">
+        <span className="w-3 h-3 rounded-full bg-[#f59e0b]" /> Daycares
+        </li>
+        <li className="flex items-center gap-2">
+        <span className="w-3 h-3 rounded-full bg-[#3b82f6]" /> Sports Fields
+        </li>
+    </ul>
+    </div>
+    <div className="mt-4">
+  <p className="font-semibold mb-1">Health & Safety</p>
+  <ul className="space-y-1 text-xs">
+    <li className="flex items-center gap-2">
+      <span className="w-3 h-3 rounded-full bg-[#FF5733]" /> Clinics
+    </li>
+    <li className="flex items-center gap-2">
+      <span className="w-3 h-3 rounded-full bg-[#5A9]" /> HIV Care Providers
+    </li>
+  </ul>
+</div>
+
+<div className="mt-4">
+  <p className="font-semibold mb-1">Local Businesses</p>
+  <ul className="space-y-1 text-xs">
+    <li className="flex items-center gap-2">
+      <span className="w-3 h-3 rounded-full bg-[#d97706]" /> Latinx-Owned Restaurants
+    </li>
+  </ul>
+</div>
     </div>
   );
 };
