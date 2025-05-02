@@ -44,7 +44,7 @@ const MapboxMap = ({ selectedTypes, selectedRegion, communityFilters }: Props) =
 
     const map = new mapboxgl.Map({
       container: mapContainer.current,
-      style: 'mapbox://styles/mapbox/streets-v12',
+      style: 'mapbox://styles/mapbox/navigation-night-v1',
       center: [LA_CENTER.lon, LA_CENTER.lat],
       zoom: 10,
     });
